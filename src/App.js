@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import ProfileComp from "./components/ProfileComp";
 import Explore from "./components/Explore";
+import SinglePost from "./components/Posts/SinglePost";
 
 export const App = () => {
   return (
@@ -16,6 +17,9 @@ export const App = () => {
         <Route exact path="/" component={AuctionBody} />
         <Route exact path="/Profile" component={ProfileComp} />
         <Route exact path="/Explore" component={Explore} />
+        <Route path="/posts/:id">
+          <SinglePost />
+        </Route>
       </AuthProvider>
     </Router>
   );

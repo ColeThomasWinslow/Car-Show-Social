@@ -2,34 +2,35 @@ import React, { useContext } from "react";
 
 import styled from "styled-components";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 export const PostCard = ({ props }) => {
   const { currentUser } = useContext(AuthContext);
   return (
     <PostBox>
-      <CardCont>
-        {/* <button onClick={AddLike}>Add Like </button> */}
+      <Link to={`/posts/${props.id}`}>
+        <CardCont>
+          <TopCard>
+            <p>User: {props.email}</p>
+            <h4>{props.title}</h4>
+          </TopCard>
 
-        <TopCard>
-          <p>User: {props.email}</p>
-          <h4>{props.title}</h4>
-        </TopCard>
-
-        <ImgBox>
-          <img src={`${props.imgUrl}`} alt={props.id} />
-        </ImgBox>
-        <CardBox>
-          <LikeBox>
-            <p>LIKES: {props.likes}</p>
-          </LikeBox>
-          <DescriptionBox>
-            <p className="Label">Description:</p>
-            <p className="description">{props.desc}</p>
-          </DescriptionBox>{" "}
-          {currentUser.email === props.email && (
-            <DeletePostBtn>Delete Post</DeletePostBtn>
-          )}
-        </CardBox>
-      </CardCont>
+          <ImgBox>
+            <img src={`${props.imgUrl}`} alt={props.id} />
+          </ImgBox>
+          <CardBox>
+            <LikeBox>
+              <p>LIKES: {props.likes}</p>
+            </LikeBox>
+            <DescriptionBox>
+              <p className="Label">Description:</p>
+              <p className="description">{props.desc}</p>
+            </DescriptionBox>{" "}
+            {currentUser.email === props.email && (
+              <DeletePostBtn>Delete Post</DeletePostBtn>
+            )}
+          </CardBox>
+        </CardCont>
+      </Link>
     </PostBox>
   );
 };

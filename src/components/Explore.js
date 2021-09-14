@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useFirestore } from "../hooks/useFirestore";
-
+import { Link } from "react-router-dom";
 function Explore() {
   const [Search, setSearch] = useState("");
   const { docs } = useFirestore("Posts");
@@ -28,16 +28,18 @@ function Explore() {
               })
               .map((value) => {
                 return (
-                  <ListBox>
-                    <ImgWrap>
-                      <img src={value.imgUrl} alt={value.id} />
-                    </ImgWrap>
-                    <Info>
-                      <p className="title">{value.title}</p>
-                      <p>{value.email}</p>
-                      <p>Go To Post</p>
-                    </Info>
-                  </ListBox>
+                  <Link to={`/posts/${value.id}`}>
+                    <ListBox>
+                      <ImgWrap>
+                        <img src={value.imgUrl} alt={value.id} />
+                      </ImgWrap>
+                      <Info>
+                        <p className="title">{value.title}</p>
+                        <p>{value.email}</p>
+                        <p>Go To Post</p>
+                      </Info>
+                    </ListBox>
+                  </Link>
                 );
               })}
           </div>
@@ -64,11 +66,17 @@ const Info = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: white;
+    @media only screen and (max-width: 600px) {
+      font-size: 12px;
+    }
   }
   p.title {
     color: #b7ded5;
     font-size: 20px;
     width: 200px;
+    @media only screen and (max-width: 600px) {
+      font-size: 15px;
+    }
   }
 `;
 const ImgWrap = styled.div`
@@ -91,6 +99,10 @@ const ListBox = styled.div`
     width: 100%;
     height: 100%;
   }
+  &:hover {
+    opacity: 90%;
+    cursor: pointer;
+  }
 `;
 const SearchBox = styled.div`
   display: flex;
@@ -105,6 +117,7 @@ const SearchBox = styled.div`
     padding: 5px;
     border-radius: 4px;
     width: 90vw;
+    max-width: 500px;
     text-transform: uppercase;
     min-width: 200px;
   }
