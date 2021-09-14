@@ -34,11 +34,11 @@ export const AuctionBody = () => {
       ) : (
         <NoUserBox>
           <h3>Show off your Sweet Ride with Car Show Social!</h3>
-          <img
-            src="images/Profile-Icon.png"
-            alt="questionMark"
-            height="150px"
-          />
+          <img src="images/Logo.png" alt="questionMark" height="250px" />
+          <p className="Desc">
+            Post Photos of your Car as well as check out Other car enthusiasts
+            Vehicles!
+          </p>
           <h4>doesn't Look Like your Logged In ...</h4>
           <p>Login or Register Now</p>
         </NoUserBox>
@@ -56,12 +56,19 @@ const NoUserBox = styled.div`
   color: #709b99;
   text-align: center;
   h3 {
+    font-weight: bold;
     text-transform: uppercase;
     max-width: 500px;
   }
   h4 {
     font-weight: bold;
     font-size: 14px;
+    text-transform: uppercase;
+  }
+  p.Desc {
+    width: 70vw;
+    max-width: 600px;
+    font-weight: bold;
     text-transform: uppercase;
   }
   img {

@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { LoginComp } from "./LoginComp";
 import { RegisterComp } from "./RegisterComp";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 export const NavComp = () => {
   const { currentUser, logout } = useContext(AuthContext);
 
@@ -18,7 +19,9 @@ export const NavComp = () => {
               <UserBox>
                 <p>SIGNED IN AS : {currentUser.email}</p>
               </UserBox>
-              <LogoutBtn onClick={() => logout()}>Logout</LogoutBtn>
+              <Link to={"/"}>
+                <LogoutBtn onClick={() => logout()}>Logout</LogoutBtn>
+              </Link>
             </>
           ) : (
             <>
