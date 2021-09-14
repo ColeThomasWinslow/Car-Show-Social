@@ -67,7 +67,7 @@ const Info = styled.div`
   }
   p.title {
     color: #b7ded5;
-    font-size: 18px;
+    font-size: 20px;
     width: 200px;
   }
 `;
