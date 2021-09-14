@@ -42,7 +42,7 @@ export const AddPost = ({ setAuction }) => {
     <>
       <div className="col d-flex justify-content-center my-3">
         <div onClick={openForm} className="btn justify-content-center ">
-          <AddImg src="/images/AddPost.png" alt="addBTN" height="55px" />
+          <AddImg src="/images/AddPost.png" alt="addBTN" height="75px" />
         </div>
       </div>
       <Modal centered show={showForm} onHide={closeForm}>

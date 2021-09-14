@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import ProfileComp from "./components/ProfileComp";
+import Explore from "./components/Explore";
 
 export const App = () => {
   return (
@@ -14,6 +15,7 @@ export const App = () => {
         <NavComp />
         <Route exact path="/" component={AuctionBody} />
         <Route exact path="/Profile" component={ProfileComp} />
+        <Route exact path="/Explore" component={Explore} />
       </AuthProvider>
     </Router>
   );

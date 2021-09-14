@@ -11,6 +11,7 @@ export const AuctionBody = () => {
   const { currentUser, globalMsg } = useContext(AuthContext);
   const { docs } = useFirestore("Posts");
   // console.log("Docs", docs);
+
   return (
     <div>
       {" "}

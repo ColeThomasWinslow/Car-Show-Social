@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import styled from "styled-components";
-
+import { AuthContext } from "../../context/AuthContext";
 export const PostCard = ({ props }) => {
+  const { currentUser } = useContext(AuthContext);
   return (
     <PostBox>
       <CardCont>
         {/* <button onClick={AddLike}>Add Like </button> */}
+
         <TopCard>
           <p>User: {props.email}</p>
           <h4>{props.title}</h4>
@@ -17,23 +19,28 @@ export const PostCard = ({ props }) => {
         </ImgBox>
         <CardBox>
           <LikeBox>
-            {/* <input
-              type="radio"
-              onClick={washingtonRef.update({
-                likes: firebase.firestore.FieldValue.increment(50),
-              })}
-            /> */}
             <p>LIKES: {props.likes}</p>
           </LikeBox>
           <DescriptionBox>
             <p className="Label">Description:</p>
             <p className="description">{props.desc}</p>
-          </DescriptionBox>
+          </DescriptionBox>{" "}
+          {currentUser.email === props.email && (
+            <DeletePostBtn>Delete Post</DeletePostBtn>
+          )}
         </CardBox>
       </CardCont>
     </PostBox>
   );
 };
+const DeletePostBtn = styled.div`
+  width: 100%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  background: #709b99;
+  color: #434343;
+`;
 const TopCard = styled.div`
   width: 100%;
 
