@@ -9,6 +9,7 @@ export const NavComp = () => {
 
   return (
     <NavCont>
+      <DevImg src="/images/Dev-Tag.png" alt="Dev" />
       <div>
         <img src="/images/Logo.png" alt="logo" height="105" />
       </div>
@@ -62,6 +63,13 @@ export const NavComp = () => {
     </NavCont>
   );
 };
+const DevImg = styled.img`
+  width: 200px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 20;
+`;
 const UserBox = styled.div`
   p {
     font-size: 14px;
