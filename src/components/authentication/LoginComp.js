@@ -77,7 +77,7 @@ const NewPostForm = styled.form`
   border: 5px solid #2b2b2b;
   .DesLabel {
     margin-top: 20px;
-    margin-bttom: 50px;
+    margin-bottom: 10px;
   }
   .Title {
     background: #2b2b2b;

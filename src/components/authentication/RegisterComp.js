@@ -36,21 +36,21 @@ export const RegisterComp = () => {
         Register
       </RegBtn>
       <Modal centered show={showForm} onHide={closeForm}>
-        <form onSubmit={submitForm}>
+        <NewPostForm onSubmit={submitForm}>
           <Modal.Header>
-            <Modal.Title>Register</Modal.Title>
+            <Modal.Title className="Title">Register</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             {error && <Alert variant="danger">{error}</Alert>}
-            <Form.Group>
+            <Form.Group className="Label">
               <Form.Label>Email Address</Form.Label>
               <Form.Control type="email" required ref={emailRef} />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="Label">
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" required ref={passwordRef} />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="Label">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control type="password" required ref={cmfPasswordRef} />
             </Form.Group>
@@ -59,15 +59,46 @@ export const RegisterComp = () => {
             <Button variant="secondary" onClick={closeForm}>
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
+            <Button className="submitBtn" type="submit">
               Register
             </Button>
           </Modal.Footer>
-        </form>
+        </NewPostForm>
       </Modal>
     </>
   );
 };
+const NewPostForm = styled.form`
+  background: black;
+  box-shadow: grey 2px 2px 10px;
+  text-align: center;
+  border: 5px solid #2b2b2b;
+  .Title {
+    background: #2b2b2b;
+    padding: 5px;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    color: #ff8178;
+  }
+  .Label {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  .submitBtn {
+    background: #ff8178;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 0px 0px 5px;
+      background: black;
+    }
+  }
+`;
 const RegBtn = styled.div`
   background: black;
   color: white;
