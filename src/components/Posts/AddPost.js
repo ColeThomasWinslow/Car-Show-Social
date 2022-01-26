@@ -41,15 +41,12 @@ export const AddPost = ({ setAuction }) => {
   return (
     <>
       <div className="col d-flex justify-content-center my-3">
-        <div onClick={openForm} className="btn justify-content-center ">
-          <AddImg src="/images/AddPost.png" alt="addBTN" height="75px" />
-        </div>
+        <OpenAddBtn onClick={openForm} className="OpenAddBtn ">
+          + ADD NEW POST
+        </OpenAddBtn>
       </div>
       <Modal centered show={showForm} onHide={closeForm}>
-        <form onSubmit={submitForm}>
-          <Modal.Header>
-            <Modal.Title>Show Off Your Car</Modal.Title>
-          </Modal.Header>
+        <NewPostForm onSubmit={submitForm}>
           <Modal.Body>
             {error && <Alert variant="danger">{error}</Alert>}
             <Row>
@@ -57,6 +54,7 @@ export const AddPost = ({ setAuction }) => {
                 <Form.Group>
                   <Form.Label>Signed In As</Form.Label>
                   <Form.Control
+                    className="SignedIn"
                     type="text"
                     value={currentUser.email}
                     readOnly
@@ -67,13 +65,24 @@ export const AddPost = ({ setAuction }) => {
             <Col>
               <Form.Group>
                 <Form.Label>Make & Model</Form.Label>
-                <Form.Control type="text" required ref={itemTitle} />
+                <Form.Control
+                  className="Make"
+                  type="text"
+                  required
+                  ref={itemTitle}
+                />
               </Form.Group>
             </Col>
             <Col>
               <Form.Group>
-                <Form.Label> Describe your Car</Form.Label>
-                <Form.Control type="text" required ref={itemDesc} />
+                <Form.Label className="DesLabel"> Describe your Car</Form.Label>
+                <Form.Control
+                  className="Description"
+                  Description
+                  type="text"
+                  required
+                  ref={itemDesc}
+                />
               </Form.Group>
             </Col>
 
@@ -81,7 +90,9 @@ export const AddPost = ({ setAuction }) => {
             <Row>
               <Col>
                 <Form.Group>
-                  <Form.Label>Photo</Form.Label>
+                  <Form.Label className="photo">
+                    Choose A Photo To Upload
+                  </Form.Label>
                   <Form.File custom required ref={itemImage} />
                 </Form.Group>
               </Col>
@@ -91,18 +102,85 @@ export const AddPost = ({ setAuction }) => {
             <Button variant="secondary" onClick={closeForm}>
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
+            <Button class="submitBtn" type="submit">
               Submit
             </Button>
           </Modal.Footer>
-        </form>
+        </NewPostForm>
       </Modal>
     </>
   );
 };
-const AddImg = styled.img`
-  transition: all 0.5s;
+
+const NewPostForm = styled.form`
+  background: black;
+  box-shadow: grey 2px 2px 10px;
+  text-align: center;
+  border: 5px solid #2b2b2b;
+  .DesLabel {
+    margin-top: 20px;
+  }
+  .Title {
+    background: #2b2b2b;
+    padding: 5px;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    color: #ff8178;
+  }
+  .Make {
+    color: white;
+    background: #2b2b2b;
+    text-align: center;
+  }
+  .SignedIn {
+    margin-bottom: 10px;
+    border: none;
+    text-align: center;
+    background: grey;
+    color: white;
+  }
+  .Description {
+    background: #2b2b2b;
+    display: flex;
+    align-items: flex-start;
+    height: 100px;
+    text-align: left;
+    color: white;
+  }
+  .photo {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .submitBtn {
+    background: #ff8178;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 0px 0px 5px;
+      background: black;
+    }
+  }
+`;
+const OpenAddBtn = styled.div`
+  cursor: pointer;
+  background: #2b2b2b;
+  padding: 10px;
+  width: 150px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: grey 0px 0px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 20px;
   &:hover {
-    opacity: 50%;
+    box-shadow: black 0px 0px 10px;
+    background: white;
+    color: black;
   }
 `;

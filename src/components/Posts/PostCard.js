@@ -7,30 +7,29 @@ export const PostCard = ({ props }) => {
   const { currentUser } = useContext(AuthContext);
   return (
     <PostBox>
-      <Link to={`/posts/${props.id}`}>
-        <CardCont>
-          <TopCard>
-            <p>User: {props.email}</p>
-            <h4>{props.title}</h4>
-          </TopCard>
-
+      <CardCont>
+        <TopCard>
+          <p>User: {props.email}</p>
+          <h4>{props.title}</h4>
+        </TopCard>
+        <Link className="Linked" to={`/posts/${props.id}`}>
           <ImgBox>
             <img src={`${props.imgUrl}`} alt={props.id} />
-          </ImgBox>
-          <CardBox>
-            <LikeBox>
-              <p>LIKES: {props.likes}</p>
-            </LikeBox>
-            <DescriptionBox>
-              <p className="Label">Description:</p>
-              <p className="description">{props.desc}</p>
-            </DescriptionBox>{" "}
-            {currentUser.email === props.email && (
-              <DeletePostBtn>Delete Post</DeletePostBtn>
-            )}
-          </CardBox>
-        </CardCont>
-      </Link>
+          </ImgBox>{" "}
+        </Link>
+        <CardBox>
+          <LikeBox>
+            <p>LIKES: {props.likes}</p>
+          </LikeBox>
+          <DescriptionBox>
+            <p className="Label">Description:</p>
+            <p className="description">{props.desc}</p>
+          </DescriptionBox>{" "}
+          {currentUser.email === props.email && (
+            <DeletePostBtn>Delete Post</DeletePostBtn>
+          )}
+        </CardBox>
+      </CardCont>
     </PostBox>
   );
 };
@@ -39,16 +38,21 @@ const DeletePostBtn = styled.div`
   font-weight: bold;
   display: flex;
   justify-content: center;
-  background: #709b99;
+  background: black;
   color: #434343;
 `;
 const TopCard = styled.div`
   width: 100%;
 
+  h4 {
+    text-align: center;
+    width: 100%;
+  }
   p {
+    border-bottom: 2px solid #ff8178;
     border-radius: 5px 5px 0px 0px;
-    color: #709b99;
-    background: #b7ded5;
+    color: white;
+    background: #2b2b2b;
     text-align: right;
     text-transform: uppercase;
     font-weight: bold;
@@ -63,7 +67,7 @@ const LikeBox = styled.div`
   right: -100px;
   font-size: 12px;
   font-weight: bold;
-
+  color: white;
   p {
     width: 100%;
     display: flex;
@@ -76,9 +80,9 @@ const DescriptionBox = styled.div`
   color: white;
 
   width: 100%;
-  background: #b7ded5;
+  background: #ff8178;
   p.Label {
-    border-top: solid #709b99 10px;
+    border-top: solid black 10px;
     width: 100%;
     padding-left: 10px;
     padding-top: 10px;
@@ -90,6 +94,7 @@ const DescriptionBox = styled.div`
   p.description {
     margin-top: -10px;
     padding: 10px;
+    text-align: center;
     background: white;
     color: black;
     font-size: 12px;
@@ -104,16 +109,9 @@ const PostBox = styled.div`
   span.check {
     margin-right: 12px;
   }
-  p.Top {
-    width: 100%;
-    margin: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
-  }
+
   div.btn {
     text-transform: uppercase;
-
     font-size: 15px;
     margin: 20px;
     &:hover {
@@ -128,27 +126,25 @@ const CardCont = styled.div`
   width: 300px;
   flex-direction: column;
   margin: 20px;
-  border-radius: 5px;
-  box-shadow: grey 0px 0px 10px;
-  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: black 0px 0px 35px;
   align-items: center;
   transition: all 0.5s;
   h4 {
     color: white;
-    background: #709b99;
+    background: black;
     font-size: 15px;
     width: 100%;
-    text-align: left;
+    font-weight: bold;
+    text-align: center;
     margin: 0px;
     padding-top: 10px;
     padding-left: 20px;
     text-transform: uppercase;
     padding-bottom: 10px;
   }
-
-  &:hover {
-    cursor: pointer;
-    opacity: 90%;
+  .Linked {
+    width: 100%;
   }
 `;
 const ImgBox = styled.div`
@@ -160,6 +156,10 @@ const ImgBox = styled.div`
     object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+  &:hover {
+    opacity: 50%;
+    cursor: pointer;
   }
 `;
 const CardBox = styled.div`

@@ -5,7 +5,10 @@ import { useFirestore } from "../../hooks/useFirestore";
 import { AddPost } from "./AddPost";
 import { PostCard } from "./PostCard";
 import { ProgressBar } from "./ProgressBar";
+import { LoginComp } from "../authentication/LoginComp";
+import { RegisterComp } from "../authentication/RegisterComp";
 import styled from "styled-components";
+
 export const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
   const { currentUser, globalMsg } = useContext(AuthContext);
@@ -33,14 +36,18 @@ export const AuctionBody = () => {
         </Container>
       ) : (
         <NoUserBox>
+          {" "}
           <h3>Show off your Sweet Ride with Car Show Social!</h3>
-          <img src="images/Logo.png" alt="questionMark" height="250px" />
+          <img src="images/TabIcon.png" alt="Logo" />
+          <div className="NoUser">
+            <h4>doesn't Look Like your Logged In</h4>
+            <LoginComp />
+            <RegisterComp />
+          </div>
           <p className="Desc">
             Post Photos of your Car as well as check out Other car enthusiasts
             Vehicles!
           </p>
-          <h4>doesn't Look Like your Logged In ...</h4>
-          <p>Login or Register Now</p>
         </NoUserBox>
       )}
     </div>
@@ -49,21 +56,22 @@ export const AuctionBody = () => {
 const NoUserBox = styled.div`
   display: flex;
   padding: 20px;
-  padding-top: 50px;
+  padding-top: 10px;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  color: #709b99;
+  color: white;
   text-align: center;
   h3 {
+    width: 100%;
     font-weight: bold;
     text-transform: uppercase;
-    max-width: 500px;
   }
   h4 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase;
+    margin-bottom: 30px;
   }
   p.Desc {
     width: 70vw;
@@ -71,8 +79,18 @@ const NoUserBox = styled.div`
     font-weight: bold;
     text-transform: uppercase;
   }
+  .NoUser {
+    width: 90vw;
+    max-width: 700px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    padding: 15px;
+    padding-bottom: 40px;
+    box-shadow: black 2px 2px 10px;
+    background: #2b2b2b;
+  }
   img {
-    margin: 20px;
+    width: 180px;
   }
 `;
 const Container = styled.div`

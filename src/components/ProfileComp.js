@@ -76,9 +76,10 @@ const ProfileCont = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 `;
 const ChangeBtn = styled.div`
-  background: #709b99;
+  background: black;
   width: 200px;
   margin-top: 40px;
   padding: 5px;
@@ -86,14 +87,15 @@ const ChangeBtn = styled.div`
   color: white;
 `;
 const InfoBox = styled.div`
-  border: solid #b7ded5 5px;
-  width: 300px;
+  border: solid #2b2b2b 5px;
+  width: 100%;
   margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: black 2px 2px 10px;
   h4 {
-    background: #709b99;
+    background: black;
     color: white;
     width: 100%;
     padding: 10px;
@@ -102,10 +104,10 @@ const InfoBox = styled.div`
   }
 `;
 const ImgWrap = styled.div`
-  border: solid #b7ded5 5px;
+  border: solid black 10px;
   height: 100px;
   width: 100px;
-
+  background: white;
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -123,13 +125,15 @@ const ProfileBox = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  text-align: center;
 `;
 const DeletePostBtn = styled.div`
   width: 100%;
   font-weight: bold;
   display: flex;
   justify-content: center;
-  background: #709b99;
+  background: black;
   color: #434343;
 `;
 const TopCard = styled.div`
@@ -137,8 +141,8 @@ const TopCard = styled.div`
 
   p {
     border-radius: 5px 5px 0px 0px;
-    color: #709b99;
-    background: #b7ded5;
+    color: black;
+    background: #2b2b2b;
     text-align: right;
     text-transform: uppercase;
     font-weight: bold;
@@ -166,9 +170,9 @@ const DescriptionBox = styled.div`
   color: white;
 
   width: 100%;
-  background: #b7ded5;
+  background: #2b2b2b;
   p.Label {
-    border-top: solid #709b99 10px;
+    border-top: solid black 10px;
     width: 100%;
     padding-left: 10px;
     padding-top: 10px;
@@ -225,7 +229,7 @@ const CardCont = styled.div`
   transition: all 0.5s;
   h4 {
     color: white;
-    background: #709b99;
+    background: black;
     font-size: 15px;
     width: 100%;
     text-align: left;

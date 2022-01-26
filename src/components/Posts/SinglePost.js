@@ -20,15 +20,16 @@ function SinglePost() {
         .map((value) => {
           return (
             <PostBox>
-              <h4>{value.title}</h4>{" "}
+              {" "}
               <p className="user">Posted By: {value.email}</p>
-              <p className="likes">Likes: {value.likes}</p>
+              <h4>{value.title}</h4>{" "}
               <Container>
                 <ImgBox>
+                  {" "}
+                  <p className="likes">Likes: {value.likes}</p>
                   <img src={`${value.imgUrl}`} alt={value.id} />
                 </ImgBox>
-
-                <p className="desc">{value.desc}</p>
+                <p className="desc">{value.desc}</p>{" "}
                 {currentUser.email === value.email ? (
                   <DeletePostBtn>Delete Post</DeletePostBtn>
                 ) : (
@@ -54,23 +55,22 @@ const PostBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: base-line;
-
+  margin-top: 40px;
   h4 {
-    border-top: 5px solid white;
     width: 100%;
     padding: 20px;
     color: white;
-    background: #709b99;
+    background: black;
     text-transform: uppercase;
-
-    margin-bottom: 0px;
+    margin: 0px;
   }
   p.desc {
-    border: 5px solid #709b99;
+    border: 5px solid black;
+    box-shadow: black 2px 2px 10px;
     font-size: 15px;
-    background: #b7ded5;
+    color: #2b2b2b;
     padding: 18px;
-    color: white;
+    background: white;
     margin: 10px;
     margin-top: 20px;
     text-align: center;
@@ -81,21 +81,25 @@ const PostBox = styled.div`
     }
   }
   p.likes {
-    font-size: 17px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: #ff8178;
+    font-size: 14px;
     display: flex;
     font-weight: bold;
-    width: 90%;
-    justify-content: flex-end;
+    width: 100%;
+    justify-content: center;
     text-transform: uppercase;
     margin: 0px;
   }
   p.user {
-    font-size: 20px;
-    background: #b7ded5;
-    margin-top: 0px;
+    font-size: 15px;
+
+    background: #2b2b2b;
+    margin: 0px;
     width: 100%;
-    padding: 0px;
-    color: #709b99;
+    padding: 10px;
+    color: white;
     padding-right: 40px;
     text-align: right;
   }
@@ -107,7 +111,7 @@ const DeletePostBtn = styled.div`
   margin-top:50px;
   padding: 5px;
   justify-content: center;
-  background: #709b99;
+  background: black;
   color: #434343;
   &:hover {cursor pointer;
     opacity: 50%;
@@ -115,9 +119,9 @@ const DeletePostBtn = styled.div`
 `;
 const ImgBox = styled.div`
   display: flex;
-
+  flex-direction: column;
   width: 400px;
-  border: 10px solid #b7ded5;
+  box-shadow: black 2px 2px 25px;
   height: 400px;
   @media only screen and (max-width: 600px) {
     width: 270px;

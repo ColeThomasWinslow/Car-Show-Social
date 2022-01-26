@@ -69,19 +69,20 @@ export const RegisterComp = () => {
   );
 };
 const RegBtn = styled.div`
-  background: #709b99;
+  background: black;
   color: white;
   text-align: center;
   font-size: 12px;
+  box-shadow: black 2px 2px 10px;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 15px;
+  padding: 5px;
+  width: 150px;
   border-radius: 5px;
   border: none;
   margin-top: 10px;
-  transition: all 0.5s;
+  transition: all 0.3s;
   &:hover {
-    background: #b7ded5;
-    color: #709b99;
+    background: #ff8178;
   }
 `;

@@ -36,7 +36,6 @@ function Explore() {
                       <Info>
                         <p className="title">{value.title}</p>
                         <p>{value.email}</p>
-                        <p>Go To Post</p>
                       </Info>
                     </ListBox>
                   </Link>
@@ -53,7 +52,7 @@ export default Explore;
 const Info = styled.div`
   display: flex;
 
-  height: 70px;
+  height: 60px;
   width: 50vw;
   max-width: 500px;
   justify-content: center;
@@ -71,7 +70,7 @@ const Info = styled.div`
     }
   }
   p.title {
-    color: #b7ded5;
+    color: #ff8178;
     font-size: 20px;
     width: 200px;
     @media only screen and (max-width: 600px) {
@@ -89,17 +88,22 @@ const ImgWrap = styled.div`
 const ListBox = styled.div`
   display: flex;
   align-items: center;
-  border-top: solid #b7ded5 10px;
   justify-content: center;
   margin: 15px;
   margin-bottom: 30px;
-  background: #709b99;
+  background: black;
+  border-radius: 4px;
+  box-shadow: black 5px 5px 10px;
+  border: 4px solid #2b2b2b;
+
   img {
     object-fit: cover;
+    outline: 2px solid #2b2b2b;
     width: 100%;
     height: 100%;
   }
   &:hover {
+    box-shadow: grey 2px 2px 10px;
     opacity: 90%;
     cursor: pointer;
   }
@@ -109,17 +113,20 @@ const SearchBox = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-
+  margin: 18px;
+  margin-bottom: 40px;
   input {
-    border: 4px solid #709b99;
+    box-shadow: black 2px 2px 25px;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 30px;
     padding: 5px;
+    border: none;
     border-radius: 4px;
     width: 90vw;
     max-width: 500px;
     text-transform: uppercase;
     min-width: 200px;
+    margin-bottom: 40px;
   }
 `;
 const SearchContainer = styled.div`
